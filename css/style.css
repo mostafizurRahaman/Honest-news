@@ -8,4 +8,13 @@
    border-bottom: 3px solid rgb(255, 255, 255);
 }
 
+.card{
+   overflow: hidden;
+}
+
+@media screen and (max-width:768px) {
+   #card-bottom p,i{
+         font-size: 12px;
+   }
+}
 
