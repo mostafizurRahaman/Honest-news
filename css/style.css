@@ -23,6 +23,7 @@
    font-size: 13px;
 
 }
+
 @media screen and (max-width:768px) {
    #card-bottom p,i{
          font-size: 10px;

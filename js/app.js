@@ -43,6 +43,7 @@ const displayNews = (newses) => {
    const newsContainer = document.getElementById("news-container"); 
    newsContainer.innerHTML = ``; 
    const newsCounter =  document.getElementById('newsCounter');
+   newses = newses.sort((a,b) => b.total_view -a.total_view);
    if(newses.length < 1){
          newsCounter.innerText = `No News Found!!!`;
          newsCounter.classList.add('danger');
@@ -56,7 +57,7 @@ const displayNews = (newses) => {
       const card = document.createElement('div'); 
       card.classList.add('col-12');
       card.innerHTML = `
-      <div class="card mb-5 text-white bg-dark p-3" onclick="loadUniqueNews('${news._id}')">
+      <div class="card mb-5 text-white bg-dark p-3" onclick="loadUniqueNews('${news._id}')" data-bs-toggle="modal" data-bs-target="#newsModal">
       <div class="row g-0 align-items-lg-center">
         <div class="col-lg-3"> 
           <img src="${news.thumbnail_url}" class="w-100 " alt="...">
@@ -72,8 +73,8 @@ const displayNews = (newses) => {
                   <img src="${news.author.img}" style="width: 30px; height:30px" class="rounded-circle" alt="">
                </div> 
                <div class="d-flex align-items-center flex-column">
-                     <p class="mb-0">${news.author.name ? news.author.name : "No user name found"}</p>
-                     <p class="mb-0">${news.author.published_date ? news.author.published_date : "date not found"}</p>
+                     <p class="mb-0">${news.author.name ? news.author.name : "No data available"}</p>
+                     <p class="mb-0">${news.author.published_date ? news.author.published_date : "No data availbale"}</p>
                </div>                         
             </div>
             <div class="col-2">
@@ -98,13 +99,41 @@ const displayNews = (newses) => {
 
 
 
-// // display news with a modal 
-// const loadUniqueNews = async (id) => {
-//    try{
-//       const url = `https://openapi.programming-hero.com/api/news/${id}`; 
-//       try{
-//          const 
-//       }
-      
-//    }
-// } 
+// load unique news 
+const loadUniqueNews = async (id) => {
+   try{
+      const url = `https://openapi.programming-hero.com/api/news/${id}`;
+      const res = await fetch(url);
+      const data = await res.json(); 
+      displayUniqueNews(data.data[0]); 
+   }catch(error){
+      console.log(error)
+   }
+   
+}
+
+
+//displayUniqueNews data with a modal 
+const displayUniqueNews = (news) => {
+   const modalTitle = document.getElementById('modal-title'); 
+   modalTitle.innerText = `${news.title}`;
+   const modalBody = document.getElementById('modal-body'); 
+   modalBody.innerHTML = `
+                  <div class="row">
+                  <div class="col-12">
+                     <img src="${news.image_url}" class="imgae-fluid w-100" alt="">
+                  </div>
+                  <div col-12>
+                        <p class='mt-5'>${news.details}</p>
+                  </div>
+                  <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                     <h5 >author Info:</h5>
+                     <img src="${news.author.img}" alt="" class="rounded-circle" style="width:100px ;height:100px">
+                     <p class="mb-0">${news.author.name ? news.author.name : "No data available"}</p>
+                     <p class="mb-0">${news.author.published_date ? news.author.published_date : "No data available"}</p>
+                     <p class="mb-0"> views : ${news.total_view ? news.total_view : 0} M</p>
+                  </div>  
+               </div>
+   `; 
+  
+}
