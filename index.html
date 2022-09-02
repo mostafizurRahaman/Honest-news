@@ -10,18 +10,18 @@
    <link rel="stylesheet" href="css/style.css">
    <title>Honest News</title>
 </head>
-<body>
+<body class="bg-dark">
    <!-- Header section start -->
    <header>
       <!-- Navbar start  -->  
-      <nav class="navbar navbar-expand-lg bg-light">
-         <div class="container border-bottom border-1 border-dark py-3">
-           <a class="navbar-brand fw-bold text-uppercase text-primary" href="#" ><span class="text-white rounded bg-primary p-2">Hosnest</span> News</a>
+      <nav class="navbar navbar-expand-lg bg-transparent navbar-dark mb-3">
+         <div class="container border-bottom border-1 border-white py-4">
+           <a class="navbar-brand fw-bold text-uppercase text-primary" href="#" ><span class="text-white rounded bg-primary p-2">Honest</span> News</a>
            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#OurNavigation">
              <span class="navbar-toggler-icon"></span>
            </button>
            <div class="collapse navbar-collapse" id="OurNavigation">
-             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold d-flex gap-3 align-lg-items-center">
+             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold d-flex gap-3 align-lg-items-center ">
                <li class="nav-item">
                  <a class="nav-link active" href="#">News</a>
                </li>
@@ -41,18 +41,31 @@
    <main class="w-100">
       <div class="container">
           <!-- Catagory Section start -->
-          <div class="navbar navbar-expand-lg">
-           <div class="d-flex justify-content-between w-100 align-items-center d-lg-none" style="height:50px ; ">
-            <h2 class="d-block d-lg-none text-uppercase">Category menu</h2>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#categoris-toggler"> <span class="navbar-toggler-icon"></span></button>
-           </div>
-            <div class="collapse navbar-collapse" id="categoris-toggler">
-               <div id="category-container" class="d-flex justify-content-center justify-content-lg-between flex-column flex-lg-row w-100 align-items-center gap-2">
-               </div>               
-            </div>
-          </div>
-         
+         <section>
+            <div class="navbar navbar-expand-lg navbar-dark">
+               <div class="d-flex justify-content-between w-100 align-items-center d-lg-none" style="height:50px ; ">
+                <h2 class="d-block d-lg-none text-uppercase text-white">Category menu</h2>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#categoris-toggler"> <span class="navbar-toggler-icon"></span></button>
+               </div>
+                <div class="collapse navbar-collapse" id="categoris-toggler">
+                   <div id="category-container" class="d-flex justify-content-center justify-content-lg-between flex-column flex-lg-row w-100 align-items-center gap-2">
+                   </div>               
+                </div>
+              </div>  
+         </section>       
          <!-- Catagory Section End -->
+         <!-- item count section start here -->
+         <section>
+            <div class="item-counter w-100 rounded shadow-lg bg-white d-flex justify-content-center align-items-center py-2 mt-5 " style="height:auto ;">
+               <p id="item-counter" class="text-dark mb-0 fs-4">No item select now</p>
+            </div>
+         </section>
+         <!-- item count setion end here -->
+         <!-- short by section start -->
+         <section>
+            
+         </section>
+         <!-- short by section end -->
       </div>
    </main>
 
