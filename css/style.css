@@ -3,7 +3,9 @@
  *{
    font-family: "Roboto Mono" , sans-serif;
  }
-
+body{
+   position: relative;
+}
 .active {
    border-bottom: 3px solid rgb(255, 255, 255);
 }
@@ -17,6 +19,20 @@
 }
 .success{
    color: green; 
+}
+.spinner-border, .spinner-grow{
+   animation-duration: 0.2s;
+  
+}
+#Spinner{
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(50%,-50%);
+   -webkit-transform: translate(50%,-50%);
+   -moz-transform: translate(50%,-50%);
+   -ms-transform: translate(50%,-50%);
+   -o-transform: translate(50%,-50%);
 }
 
 #card-bottom p,i{
